@@ -1,0 +1,81 @@
+/* Общий фон окна */
+.root {
+    -fx-background-color: #1e1e2e;
+    -fx-font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* Метки и текст */
+.label {
+    -fx-text-fill: #cdd6f4;
+}
+
+/* Поля ввода и выпадающий список */
+.text-field, .combo-box {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-border-color: #45475a;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #89b4fa;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #cdd6f4;
+}
+
+/* Кнопки */
+.button {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #11111b;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 7 14;
+}
+
+.button:hover {
+    -fx-background-color: #b4befe;
+}
+
+.button:pressed {
+    -fx-background-color: #74c7ec;
+}
+
+/* Таблица */
+.table-view {
+    -fx-background-color: #313244;
+    -fx-border-color: #45475a;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #181825;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #89b4fa;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #1e1e2e;
+    -fx-text-fill: #cdd6f4;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #181825;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #45475a;
+}

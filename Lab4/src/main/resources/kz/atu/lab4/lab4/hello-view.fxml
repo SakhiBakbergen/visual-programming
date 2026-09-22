@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab4.lab4.HelloController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Label text="Панель управления студентами" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                <VBox HBox.hgrow="ALWAYS" />
+                <Button text="Добавить" />
+                <Button onAction="#onClearClick" text="Очистить" />
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="8.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Button maxWidth="1.7976931348623157E308" text="Студенты" />
+                <Button maxWidth="1.7976931348623157E308" text="Группы" />
+                <Button maxWidth="1.7976931348623157E308" text="Настройки" />
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox fx:id="contentBox" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <GridPane hgap="10.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="80.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="ФИО:" />
+                        <Label text="Группа:" GridPane.rowIndex="1" />
+                        <Label text="Курс:" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtFullName" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtGroup" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cmbCourse" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button onAction="#onSaveClick" text="Сохранить" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    </children>
+                </GridPane>
+                <TableView fx:id="tblStudents" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn prefWidth="200.0" text="ФИО" />
+                        <TableColumn prefWidth="100.0" text="Группа" />
+                        <TableColumn prefWidth="100.0" text="Курс" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+            </padding>
+            <children>
+                <Label fx:id="lblStatus" text="Статус: приложение готово" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
