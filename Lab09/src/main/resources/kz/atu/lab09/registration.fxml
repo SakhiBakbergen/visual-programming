@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="@validation.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab09.HelloController">
+    <top>
+        <VBox alignment="CENTER_LEFT" styleClass="header-container">
+            <padding><Insets bottom="10" left="20" right="20" top="15" /></padding>
+            <Label text="Регистрация участника" styleClass="form-title" />
+            <Label text="Заполните все поля для регистрации в системе" styleClass="form-subtitle" />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" styleClass="card-pane">
+            <padding><Insets bottom="15" left="20" right="20" top="15" /></padding>
+            <GridPane hgap="15" vgap="4">
+                <Label text="ФИО:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtName" promptText="Введите ФИО" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label fx:id="lblNameError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtEmail" promptText="example@mail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="lblEmailError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Возраст:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="txtAge" promptText="16 - 100" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="lblAgeError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <Label text="Дата рождения:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <TextField fx:id="txtBirthDate" promptText="ГГГГ-ММ-ДД (например, 2005-05-12)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label fx:id="lblBirthDateError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+                <Label text="Формат:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                <ComboBox fx:id="cmbFormat" prefWidth="250" promptText="Выберите формат" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label fx:id="lblFormatError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+                <CheckBox fx:id="chkConsent" text="Я согласен с условиями обработки данных" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <Label fx:id="lblConsentError" styleClass="error-label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            </GridPane>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button onAction="#onRegister" text="Зарегистрировать" styleClass="primary-button" />
+                <Button onAction="#clearForm" text="Очистить" styleClass="secondary-button" />
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox>
+            <padding><Insets bottom="15" left="20" right="20" top="5" /></padding>
+            <TableView fx:id="tableParticipants" prefHeight="150">
+                <columns>
+                    <TableColumn fx:id="colName" text="ФИО" prefWidth="150" />
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="150" />
+                    <TableColumn fx:id="colAge" text="Возраст" prefWidth="65" />
+                    <TableColumn fx:id="colBirthDate" text="Дата рождения" prefWidth="110" />
+                    <TableColumn fx:id="colFormat" text="Формат" prefWidth="95" />
+                </columns>
+            </TableView>
+        </VBox>
+    </bottom>
+</BorderPane>
