@@ -1,0 +1,197 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-background-color: #f4f6fb;
+    -fx-accent: #3f51b5;
+    -fx-focus-color: #3f51b5;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ---------- Верхняя панель ---------- */
+.header {
+    -fx-background-color: #3f51b5;
+    -fx-padding: 12 16 12 16;
+    -fx-spacing: 10;
+}
+.header .label {
+    -fx-text-fill: white;
+}
+.app-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.header .text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-text-fill: #1c1f33;
+    -fx-prompt-text-fill: #9aa0b8;
+    -fx-padding: 6 12 6 12;
+}
+.btn-header {
+    -fx-background-color: rgba(255,255,255,0.2);
+    -fx-border-color: white;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-padding: 6 16 6 16;
+    -fx-cursor: hand;
+}
+.btn-header:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #3f51b5;
+}
+
+/* ---------- Карточки ---------- */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 10, 0, 0, 2);
+}
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #283593;
+}
+.field-label {
+    -fx-text-fill: #5c6280;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.hint {
+    -fx-text-fill: #8a90ab;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Поля ввода ---------- */
+.card .text-field {
+    -fx-background-color: #f7f8fc;
+    -fx-border-color: #d5d9ea;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #1c1f33;
+    -fx-prompt-text-fill: #9aa0b8;
+    -fx-padding: 8 10 8 10;
+}
+.card .text-field:focused,
+.text-area:focused {
+    -fx-border-color: #3f51b5;
+}
+.text-area {
+    -fx-background-color: #f7f8fc;
+    -fx-border-color: #d5d9ea;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.text-area .content {
+    -fx-background-color: #f7f8fc;
+    -fx-background-radius: 8;
+}
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* ---------- Выпадающие списки ---------- */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #9fa8da;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 2 4 2 4;
+}
+.combo-box:focused {
+    -fx-background-color: white;
+    -fx-border-color: #3f51b5;
+}
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1c1f33;
+    -fx-border-width: 0;
+    -fx-padding: 4 6 4 6;
+}
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+.combo-box .arrow {
+    -fx-background-color: #3f51b5;
+}
+
+/* всплывающее меню: сплошной белый фон */
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-border-color: #9fa8da;
+    -fx-border-width: 1;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0, 0, 4);
+}
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #1c1f33;
+    -fx-padding: 9 14 9 14;
+    -fx-border-width: 0;
+}
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #e8eaf6;
+    -fx-text-fill: #1a237e;
+}
+.combo-box-popup .list-view .list-cell:filled:selected,
+.combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background-color: #3f51b5;
+    -fx-text-fill: white;
+}
+
+/* ---------- Кнопки формы ---------- */
+.btn {
+    -fx-background-radius: 8;
+    -fx-padding: 9 20 9 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.btn-primary   { -fx-background-color: #3f51b5; -fx-text-fill: white; }
+.btn-primary:hover   { -fx-background-color: #32408f; }
+.btn-warn      { -fx-background-color: #ffa000; -fx-text-fill: white; }
+.btn-warn:hover      { -fx-background-color: #e69100; }
+.btn-danger    { -fx-background-color: #e53935; -fx-text-fill: white; }
+.btn-danger:hover    { -fx-background-color: #c62828; }
+.btn-secondary { -fx-background-color: #e3e6f3; -fx-text-fill: #283593; }
+.btn-secondary:hover { -fx-background-color: #d3d8ee; }
+
+/* ---------- Список фильмов ---------- */
+#listNotes {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+#listNotes .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10 12 10 12;
+    -fx-text-fill: #1c1f33;
+    -fx-border-color: transparent transparent #eceef7 transparent;
+    -fx-border-width: 0 0 1 5;
+}
+#listNotes .list-cell:filled:hover {
+    -fx-background-color: #f1f3fb;
+}
+#listNotes .list-cell:filled:selected,
+#listNotes .list-cell:filled:selected:focused {
+    -fx-background-color: #e8eaf6;
+    -fx-text-fill: #1a237e;
+}
+#listNotes .list-cell:empty {
+    -fx-border-color: transparent;
+}
+#listNotes .list-cell.status-want     { -fx-border-color: transparent transparent #eceef7 #ffb300; }
+#listNotes .list-cell.status-watching { -fx-border-color: transparent transparent #eceef7 #1e88e5; }
+#listNotes .list-cell.status-done     { -fx-border-color: transparent transparent #eceef7 #43a047; }
+
+/* ---------- Нижняя строка ---------- */
+.statusbar {
+    -fx-background-color: white;
+    -fx-border-color: #e3e6f3 transparent transparent transparent;
+    -fx-padding: 8 16 8 16;
+}
+.statusbar .label {
+    -fx-text-fill: #5c6280;
+    -fx-font-size: 12px;
+}

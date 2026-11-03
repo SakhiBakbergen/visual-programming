@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kz.atu.lab10.NotesController"
+            stylesheets="@styles.css">
+
+    <top>
+        <ToolBar styleClass="header">
+            <Label text="Список фильмов" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS" prefWidth="20"/>
+            <Label text="Поиск:"/>
+            <TextField fx:id="txtSearch" promptText="Название фильма" prefWidth="220"/>
+            <Label text="Статус:"/>
+            <ComboBox fx:id="cbFilter" prefWidth="170"/>
+            <Button fx:id="btnReset" text="Сбросить" onAction="#onResetFilter" styleClass="btn-header"/>
+        </ToolBar>
+    </top>
+
+    <left>
+        <VBox spacing="8" styleClass="card" prefWidth="330">
+            <padding><Insets top="14" right="8" bottom="12" left="8"/></padding>
+            <BorderPane.margin><Insets top="14" right="0" bottom="14" left="14"/></BorderPane.margin>
+
+            <Label text="Мои фильмы" styleClass="section-title">
+                <padding><Insets left="8"/></padding>
+            </Label>
+            <Label text="Выберите фильм, чтобы увидеть его справа" styleClass="hint">
+                <padding><Insets left="8" bottom="4"/></padding>
+            </Label>
+
+            <ListView fx:id="listNotes" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="8" styleClass="card">
+            <padding><Insets top="18" right="20" bottom="18" left="20"/></padding>
+            <BorderPane.margin><Insets top="14" right="14" bottom="14" left="14"/></BorderPane.margin>
+
+            <Label text="Карточка фильма" styleClass="section-title"/>
+            <Label text="Заполните поля и нажмите «Добавить» или выберите фильм слева и нажмите «Изменить»"
+                   styleClass="hint" wrapText="true"/>
+
+            <Label text="НАЗВАНИЕ" styleClass="field-label">
+                <padding><Insets top="8"/></padding>
+            </Label>
+            <TextField fx:id="txtTitle" promptText="Например: Интерстеллар"/>
+
+            <Label text="СТАТУС" styleClass="field-label">
+                <padding><Insets top="4"/></padding>
+            </Label>
+            <ComboBox fx:id="cbStatus" prefWidth="240"/>
+
+            <Label text="ОПИСАНИЕ / ВПЕЧАТЛЕНИЯ" styleClass="field-label">
+                <padding><Insets top="4"/></padding>
+            </Label>
+            <TextArea fx:id="txtBody" promptText="Напишите, о чём фильм и что вы о нём думаете"
+                      wrapText="true" VBox.vgrow="ALWAYS"/>
+
+            <HBox spacing="10">
+                <padding><Insets top="8" right="0" bottom="0" left="0"/></padding>
+                <Button fx:id="btnAdd" text="Добавить" onAction="#onAdd" styleClass="btn, btn-primary"/>
+                <Button fx:id="btnEdit" text="Изменить" onAction="#onEdit" styleClass="btn, btn-warn"/>
+                <Button fx:id="btnDelete" text="Удалить" onAction="#onDelete" styleClass="btn, btn-danger"/>
+                <Button fx:id="btnClear" text="Очистить форму" onAction="#onClear" styleClass="btn, btn-secondary"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="24" styleClass="statusbar">
+            <Label fx:id="lblStatus" text="Готово"/>
+            <Label fx:id="lblCount"/>
+        </HBox>
+    </bottom>
+</BorderPane>
