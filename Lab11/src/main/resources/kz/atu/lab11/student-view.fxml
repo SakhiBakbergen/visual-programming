@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox spacing="16.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab11.controller.StudentController">
+    <padding>
+        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+    </padding>
+
+    <!-- Левая панель: Форма ввода и статистика -->
+    <VBox spacing="10.0" prefWidth="290.0" styleClass="card" HBox.hgrow="NEVER">
+        <Label text="Данные студента" styleClass="title-label" />
+
+        <VBox spacing="3.0">
+            <HBox spacing="2.0">
+                <Label text="ФИО" styleClass="field-label" />
+                <Label text="*" styleClass="required-asterisk" />
+            </HBox>
+            <TextField fx:id="txtName" promptText="Иванов Иван" />
+            <Label fx:id="lblErrName" styleClass="error-label" visible="false" managed="false" />
+        </VBox>
+
+        <VBox spacing="3.0">
+            <HBox spacing="2.0">
+                <Label text="Группа" styleClass="field-label" />
+                <Label text="*" styleClass="required-asterisk" />
+            </HBox>
+            <TextField fx:id="txtGroup" promptText="ИС-301" />
+            <Label fx:id="lblErrGroup" styleClass="error-label" visible="false" managed="false" />
+        </VBox>
+
+        <VBox spacing="3.0">
+            <HBox spacing="2.0">
+                <Label text="GPA (0.0 – 4.0)" styleClass="field-label" />
+                <Label text="*" styleClass="required-asterisk" />
+            </HBox>
+            <TextField fx:id="txtGpa" promptText="3.5" />
+            <Label fx:id="lblErrGpa" styleClass="error-label" visible="false" managed="false" />
+        </VBox>
+
+        <VBox spacing="8.0" style="-fx-padding: 5 0 0 0;">
+            <HBox spacing="8.0">
+                <Button text="Добавить" onAction="#onAdd" styleClass="btn, btn-primary" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <tooltip><Tooltip text="Добавить нового студента" /></tooltip>
+                </Button>
+                <Button fx:id="btnUpdate" text="Изменить" onAction="#onUpdate" styleClass="btn, btn-secondary" disable="true" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <tooltip><Tooltip text="Сохранить изменения выбранного студента" /></tooltip>
+                </Button>
+            </HBox>
+
+            <Button text="Очистить форму" onAction="#onClear" styleClass="btn, btn-secondary" maxWidth="Infinity">
+                <tooltip><Tooltip text="Сбросить выбранную строку и очистить поля" /></tooltip>
+            </Button>
+
+            <Button fx:id="btnDelete" text="Удалить студента" onAction="#onDelete" styleClass="btn, btn-danger-outline" disable="true" maxWidth="Infinity">
+                <tooltip><Tooltip text="Удалить выбранного студента из списка" /></tooltip>
+            </Button>
+        </VBox>
+
+        <Separator style="-fx-padding: 6 0;" />
+
+        <VBox spacing="6.0" style="-fx-background-color: #f9fafb; -fx-padding: 10; -fx-background-radius: 6px;">
+            <Label text="Статистика" style="-fx-font-weight: bold; -fx-text-fill: #374151;" />
+            <Label fx:id="lblStatTotal" text="Всего студентов: 0" style="-fx-text-fill: #4b5563; -fx-font-size: 12px;" />
+            <Label fx:id="lblStatAvgGpa" text="Средний GPA: 0.00" style="-fx-text-fill: #4b5563; -fx-font-size: 12px;" />
+            <Label fx:id="lblStatMaxGpa" text="Лучший GPA: 0.00" style="-fx-text-fill: #4b5563; -fx-font-size: 12px;" />
+            <Label fx:id="lblStatGroupsCount" text="Всего групп: 0" style="-fx-text-fill: #4b5563; -fx-font-size: 12px;" />
+        </VBox>
+    </VBox>
+
+    <!-- Правая область: Фильтры, Таблица, Статус-бар -->
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+        <!-- Исправленная верхняя панель (без ошибок типов) -->
+        <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="card" style="-fx-padding: 10 14;">
+            <Label text="Поиск:" styleClass="field-label" />
+            <TextField fx:id="txtSearch" promptText="Поиск по ФИО..." HBox.hgrow="ALWAYS" />
+
+            <Label text="Группа:" styleClass="field-label" />
+            <ComboBox fx:id="cmbGroupFilter" prefWidth="130.0" minWidth="100.0" />
+
+            <Button text="Экспорт CSV" onAction="#onExportCsv" styleClass="btn, btn-secondary" minWidth="110.0">
+                <tooltip><Tooltip text="Сохранить отфильтрованный список в файл CSV" /></tooltip>
+            </Button>
+        </HBox>
+
+        <!-- Таблица студентов -->
+        <TableView fx:id="tableStudents" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colName" text="ФИО студента" prefWidth="380.0" style="-fx-alignment: CENTER-LEFT;" />
+                <TableColumn fx:id="colGroup" text="Группа" prefWidth="150.0" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="colGpa" text="GPA" prefWidth="100.0" style="-fx-alignment: CENTER;" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <placeholder>
+                <VBox alignment="CENTER" spacing="6.0">
+                    <Label text="Студентов пока нет" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #9ca3af;" />
+                    <Label text="Заполните форму слева и нажмите «Добавить»" style="-fx-text-fill: #9ca3af;" />
+                </VBox>
+            </placeholder>
+        </TableView>
+
+        <!-- Подвал -->
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+            <Label fx:id="lblCount" text="Найдено записей: 0" style="-fx-text-fill: #4b5563; -fx-font-weight: 600;" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button text="ℹ О программе" onAction="#onAbout" style="-fx-background-color: transparent; -fx-text-fill: #2563eb; -fx-cursor: hand;" />
+        </HBox>
+    </VBox>
+</HBox>
