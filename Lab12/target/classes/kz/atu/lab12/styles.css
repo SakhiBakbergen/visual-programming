@@ -1,0 +1,263 @@
+/* Палитра: белые карточки, тёплый оранжевый акцент, чёрные заголовки */
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-background-color: #f6f6f7;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ---------- верхняя панель ---------- */
+.topbar {
+    -fx-background-color: white;
+    -fx-padding: 14 40 14 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 10, 0, 0, 2);
+}
+.logo {
+    -fx-background-color: linear-gradient(to bottom right, #ffb347, #f5821f);
+    -fx-background-radius: 9;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+.brand {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.search-field {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e1e1e4;
+    -fx-border-radius: 10;
+    -fx-padding: 9 16 9 16;
+    -fx-pref-width: 420;
+    -fx-prompt-text-fill: #9a9aa3;
+}
+.search-field:focused {
+    -fx-border-color: #f5821f;
+}
+
+/* ---------- заголовок страницы ---------- */
+.page-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}
+.page-subtitle {
+    -fx-text-fill: #55606e;
+    -fx-font-size: 14px;
+}
+
+/* ---------- таблица ---------- */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-padding: 6 8 8 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0, 0, 3);
+}
+.table-view .column-header-background {
+    -fx-background-color: white;
+}
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: white;
+    -fx-size: 44px;
+    -fx-border-color: transparent transparent #ececef transparent;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #7a7a85;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.table-row-cell {
+    -fx-cell-size: 46px;
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f2f2f4 transparent;
+    -fx-table-cell-border-color: transparent;
+}
+.table-row-cell:hover {
+    -fx-background-color: #fff7ef;
+}
+.table-row-cell:filled:selected {
+    -fx-background-color: #ffe9d2;
+}
+.table-cell {
+    -fx-padding: 0 14 0 14;
+    -fx-alignment: CENTER-LEFT;
+    -fx-text-fill: #1a1a1a;
+}
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: #1a1a1a;
+}
+.placeholder-label {
+    -fx-text-fill: #9a9aa3;
+    -fx-font-size: 15px;
+}
+
+/* ---------- карточка формы ---------- */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20 24 22 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0, 0, 3);
+}
+.card-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+.field-label {
+    -fx-text-fill: #7a7a85;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e1e1e4;
+    -fx-border-radius: 10;
+    -fx-padding: 9 14 9 14;
+}
+.text-field:focused {
+    -fx-border-color: #f5821f;
+}
+
+/* ---------- кнопки ---------- */
+.btn {
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 9 28 9 28;
+    -fx-cursor: hand;
+}
+.btn-add {
+    -fx-background-color: #f5821f;
+    -fx-text-fill: white;
+}
+.btn-add:hover { -fx-background-color: #dd6f10; }
+
+.btn-edit {
+    -fx-background-color: white;
+    -fx-border-color: #f5821f;
+    -fx-text-fill: #d9690c;
+}
+.btn-edit:hover { -fx-background-color: #fff3e6; }
+
+.btn-delete {
+    -fx-background-color: white;
+    -fx-border-color: #e0555a;
+    -fx-text-fill: #d03d43;
+}
+.btn-delete:hover { -fx-background-color: #fdeeee; }
+
+.btn-refresh {
+    -fx-background-color: #efeff2;
+    -fx-text-fill: #3a3a44;
+}
+.btn-refresh:hover { -fx-background-color: #e3e3e8; }
+
+/* ---------- статус ---------- */
+.status {
+    -fx-text-fill: #6b6b76;
+    -fx-font-size: 13px;
+}
+
+/* ================= фильтры-«чипы» ================= */
+.chip {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-padding: 9 20 9 20;
+    -fx-text-fill: #c2570c;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);
+}
+.chip:hover { -fx-background-color: #fff3e6; }
+.chip:selected {
+    -fx-background-color: #f5821f;
+    -fx-text-fill: white;
+}
+
+/* ================= хлебные крошки ================= */
+.crumb-link { -fx-text-fill: #c2570c; -fx-font-size: 12px; }
+.crumb      { -fx-text-fill: #6b6b76; -fx-font-size: 12px; }
+
+/* ================= полка с «обложками» ================= */
+.shelf-card {
+    -fx-padding: 16 22 12 22;
+}
+.shelf-scroll,
+.shelf-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.shelf-scroll {
+    -fx-padding: 0;
+}
+.book-card {
+    -fx-cursor: hand;
+}
+.book-cover {
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.22), 8, 0, 0, 2);
+}
+.cover-title {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+.cover-year {
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+.book-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.book-author {
+    -fx-text-fill: #c2570c;
+    -fx-font-size: 12px;
+}
+.book-card:hover .book-title { -fx-text-fill: #d9690c; }
+
+/* ================= правая колонка: топ авторов ================= */
+.sidebar-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+.sidebar-sub {
+    -fx-text-fill: #55606e;
+    -fx-font-size: 13px;
+}
+.author-list,
+.author-list .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.author-list {
+    -fx-padding: 6 0 0 0;
+}
+.author-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 8 10 8 10;
+    -fx-background-radius: 8;
+}
+.author-list .list-cell:filled:hover {
+    -fx-background-color: #fff3e6;
+}
+.author-list .list-cell:filled:selected {
+    -fx-background-color: #ffe9d2;
+}
+.author-name  { -fx-text-fill: #c2570c; -fx-font-size: 14px; }
+.author-count { -fx-text-fill: #8a8a95; -fx-font-size: 12px; }
